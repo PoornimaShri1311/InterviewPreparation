@@ -1,0 +1,7 @@
+StepDefinitions\Registration.class
+pages\loginPage.class
+pageFactory\LoginPage_PF.class
+StepDefinitions\LoginSteps.class
+StepDefinitions\Registration_PF.class
+runner\TestRunner.class
+StepDefinitions\GoogleSearchSteps.class
