@@ -1,23 +1,30 @@
 package runner;
 
-import org.junit.runner.RunWith;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-import io.cucumber.junit.CucumberOptions;
-import io.cucumber.junit.Cucumber;
-
-@RunWith(value = Cucumber.class)
-@CucumberOptions(features="src/test/resources/Features",glue={"StepDefinitions"},
+//@RunWith(value = Cucumber.class)
+//@CucumberOptions(features = "src/test/resources/Features", glue = { "stepDefinitions" },
 //monochrome=true,
-plugin=
-{
-//	"pretty",
-	"json:target/cucumber.json",
-//	"junit:target/JunitReports/report.xml",
-//	"html:target/HtmlReports/"
-},
-tags="@SmokeTest")
+//		plugin = { "pretty", "json:target/cucumber.json", "junit:target/JunitReports/report.xml",
+//				"html: target/cucumber-reports",
+//				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, tags = "@UITest")
+//
+//public class TestRunner {
+//
+//}
 
+@CucumberOptions(features = {"src/test/resources/features"},
+        glue = {"stepDefinitions"},
+        monochrome = true,
+        plugin = {"pretty",
+                "json:target/cucumber.json",
+                "junit:target/JunitReports/report.xml",
+                "html: target/cucumber-reports.html",
+                "rerun:target/failedrerun.txt",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+        tags = "@SFTest")
 
-public class TestRunner {
+public class TestRunner extends AbstractTestNGCucumberTests {
 
 }
